@@ -11,3 +11,7 @@ Your task is to craft a Xamarin application, that will make their work more effi
 1. Insert a match criteria - a combination of a technology (from a list) and years of experience (a number)
 2. Swipe left or right on a candidate, which will mark him/her as accepted or rejected
 3. View a list of all accepted candidates
+
+
+### Architecture
+MVU and Multi-layered approach inspiring by Clean Architecture
