@@ -1,0 +1,39 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:forms="clr-namespace:FFImageLoading.Forms;assembly=FFImageLoading.Forms"
+             x:Class="VA.Candidate.Reviewer.Features.CandidateSelector.CandidateSelectorPage"
+             Title="Candidate Review">
+    <ContentPage.Content>
+        <Grid>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="*"/>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto"/>
+            </Grid.RowDefinitions>
+            <Grid Grid.Row="0" Margin="10">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="Auto"/>
+                    <ColumnDefinition Width="120"/>
+                    <ColumnDefinition Width="Auto"/>
+                    <ColumnDefinition Width="80"/>
+                </Grid.ColumnDefinitions>
+                <Label Text="Technology: " VerticalTextAlignment="Center"/>
+                <Picker Grid.Column="1" x:Name="TechnologyPicker" SelectedIndexChanged="OnPickerSelectedIndexChanged" Margin="0, 0, 10, 10" />
+                <Label Grid.Column="2" Text="Experience:" Margin="0" VerticalTextAlignment="Center"/>
+                <Entry Grid.Column="3" x:Name="YearsInput" Margin="0, 0, 10, 10" TextChanged="OnYearsTextChanged" Unfocused="OnYearsUnfocused"></Entry>
+            </Grid>
+            <forms:CachedImage x:Name="ProfileImage" Aspect="AspectFit" Grid.Row="1">
+                <forms:CachedImage.GestureRecognizers>
+                    <SwipeGestureRecognizer Direction="Left" Swiped="OnRejecting"/>
+                    <SwipeGestureRecognizer Direction="Right" Swiped="OnApproving"/>
+                </forms:CachedImage.GestureRecognizers>
+            </forms:CachedImage>
+            <Label x:Name="EmptyLabel"  Grid.Row="1" Text="There is no suitable candidates, try to change filters" VerticalTextAlignment="Center" HorizontalTextAlignment="Center"/>
+            <Label x:Name="CandidateName" Grid.Row="2" HorizontalOptions="CenterAndExpand" FontSize="Title"/>
+            <Label x:Name="CandidateInfo" Grid.Row="3" HorizontalOptions="CenterAndExpand" FontSize="Subtitle" Margin="0, 0, 0, 10"/>
+        </Grid>
+    </ContentPage.Content>
+</ContentPage>
